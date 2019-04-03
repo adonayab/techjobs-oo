@@ -8,27 +8,79 @@
 
 <div class="container body-content">
 
+
     <form th:object="${jobForm}" method="post">
 
-        <div class="form-group">
-            <label th:for="name">Name</label>
-            <input th:field="*{name}" />
-            <div th:errors="*{name}"></div>
-        </div>
+        <table class="table">
 
-        <div class="form-group">
-            <label th:for="employerId">Employer</label>
-            <select th:field="*{employerId}">
-                <option th:each="employer : *{employers}"
-                        th:value="${employer.id}"
-                        th:text="${employer.value}"></option>
-            </select>
-        </div>
+            <tr>
+                <div class="form-group">
+                    <th><label th:for="name">Name</label></th>
+                    <td><input class="form-control"  th:field="*{name}" /></td>
+                    <div class="error" th:errors="*{name}"></div>
+                </div>
+            </tr>
 
-        <!-- TODO #5 - Create <select> dropdowns for other job fields -->
+            <tr>
+                <div class="form-group">
+                    <th><label th:for="employerId">Employer</label></th>
+                    <td>
+                        <select th:field="*{employerId}" class="form-control">
+                            <option th:each="employer : *{employers}"
+                                    th:value="${employer.id}"
+                                    th:text="${employer.value}"></option>
+                        </select>
+                    </td>
+                </div>
+            </tr>
 
-        <input type="submit" value="Add Job" />
+            <!-- TODO #5 - Create <select> dropdowns for other job fields -->
+
+            <tr>
+                <div class="form-group">
+                    <th><label th:for="locationId">Location</label></th>
+                    <td>
+                        <select th:field="*{locationId}" class="form-control">
+                            <option th:each="location : *{locations}"
+                                    th:value="${location.id}"
+                                    th:text="${location.value}"></option>
+                        </select>
+                    </td>
+                </div>
+            </tr>
+
+            <tr>
+                <div class="form-group">
+                    <th><label th:for="positionTypesId">Position Type</label></th>
+                    <td>
+                        <select th:field="*{positionTypeId}" class="form-control">
+                            <option th:each="positionType : *{positionTypes}"
+                                    th:value="${positionType.id}"
+                                    th:text="${positionType.value}"></option>
+                        </select>
+                    </td>
+                </div>
+            </tr>
+
+            <tr>
+                <div class="form-group">
+                    <th><label th:for="coreCompetencyId">Skill</label></th>
+                    <td>
+                            <select th:field="*{coreCompetencyId}" class="form-control">
+                            <option th:each="coreCompetency : *{coreCompetencies}"
+                                    th:value="${coreCompetency.id}"
+                                    th:text="${coreCompetency.value}"></option>
+                        </select>
+                    </td>
+                </div>
+            </tr>
+
+            <tr><td></td><td><input class="btn btn-default" type="submit" value="Add Job" /></td></tr>
+
+        </table>
     </form>
+
+
 
 </div>
 

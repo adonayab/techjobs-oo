@@ -37,3 +37,23 @@ ul.form-group li {
     display: inline-block;
     padding-right: 15px;
 }
+
+/* Error messages */
+
+.error {
+    color: red;
+    font-style: italic;
+}
+
+/* Custom button */
+
+input[type=submit] {
+  background-color: rgb(34, 33, 33);
+  border: none;
+  color: rgb(248, 248, 248);
+  padding: 8px 16px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 20px;
+}
